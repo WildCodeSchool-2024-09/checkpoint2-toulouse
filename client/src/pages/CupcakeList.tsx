@@ -44,6 +44,9 @@ function CupcakeList() {
           Filter by{" "}
           <select id="cupcake-select" onChange={handleChange}>
             {/* Step 4: add an option for each accessory */}
+            <option value="" slug-name="">
+              ...
+            </option>
             {accessories.map((item) => {
               return (
                 <option value={item.id} key={item.id} slug-name={item.slug}>
