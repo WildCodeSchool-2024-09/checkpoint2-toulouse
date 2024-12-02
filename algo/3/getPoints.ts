@@ -13,8 +13,8 @@ Pour exemple, si ta fonction recevait le tableau ci-dessous en paramètre, tu de
 function getPoints(results: string[]): number {
   let points = 0;
   results.map((result) => {
-    const score1 = Number.parseInt(result.split("")[0]);
-    const score2 = Number.parseInt(result.split("")[2]);
+    const score1 = Number.parseInt(result[0]);
+    const score2 = Number.parseInt(result[2]);
     if (score1 > score2) {
       points += 3;
     }
