@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Cupcake from "../components/Cupcake";
 
 /* ************************************************************************* */
@@ -92,9 +92,11 @@ function CupcakeList() {
             inputValue === "" ? true : inputValue === cupcake.accessory_id,
           )
           .map((cupcake) => (
-            <li className="cupcake-item" key={cupcake.id}>
-              <Cupcake data={cupcake} />
-            </li>
+            <Link key={cupcake.id} to={`${cupcake.id}`}>
+              <li className="cupcake-item">
+                <Cupcake data={cupcake} />
+              </li>
+            </Link>
           ))}
         {/* <li className="cupcake-item">
           <Cupcake data={sampleCupcakes[0]} />

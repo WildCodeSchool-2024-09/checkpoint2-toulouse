@@ -3,6 +3,7 @@ import "./Cupcake.css";
 interface CupcakeProps {
   data: {
     accessory: string;
+    accessory_id: string;
     color1: string;
     color2: string;
     color3: string;
