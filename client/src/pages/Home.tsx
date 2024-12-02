@@ -17,11 +17,19 @@ function Home() {
     <>
       <h1>Cupcake Union</h1>
       <div className="home-cupcake">
-        <Cupcake data={sampleData} />
+        <Cupcake
+          name={sampleData.name}
+          color1={sampleData.color1}
+          color2={sampleData.color2}
+          color3={sampleData.color3}
+          accessory={sampleData.accessory}
+          id={0}
+          accessory_id=""
+        />
       </div>
       <div className="home-content">
         <p>
-          Welcome to the Cupcake Union 🧁 <br />
+          Welcome to color1={sampleData.color1} the Cupcake Union 🧁 <br />
           On this application, you will:
         </p>
         <p>

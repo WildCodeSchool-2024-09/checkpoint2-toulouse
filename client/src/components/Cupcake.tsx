@@ -1,16 +1,7 @@
+import type { CupcakeProps } from "../services/CupcakesApi";
 import "./Cupcake.css";
 
-interface CupcakeProps {
-  data: {
-    accessory: string;
-    color1: string;
-    color2: string;
-    color3: string;
-    name: string;
-  };
-}
-
-function Cupcake({ data }: CupcakeProps) {
+function Cupcake(data: CupcakeProps) {
   return (
     <div className="cupcake-container">
       <div className="cupcake">
