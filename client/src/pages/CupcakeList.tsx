@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import Cupcake from "../components/Cupcake";
 
 /* ************************************************************************* */
@@ -64,6 +64,8 @@ function CupcakeList() {
 
   // Step 5: create filter state
 
+  const [filterState, setFilterSate] = useState("");
+
   return (
     <>
       <h1>My cupcakes</h1>
@@ -71,7 +73,12 @@ function CupcakeList() {
         <label htmlFor="cupcake-select">
           {/* Step 5: use a controlled component for select */}
           Filter by{" "}
-          <select id="cupcake-select">
+          <select
+            id="cupcake-select"
+            onChange={(event) => {
+              setFilterSate(event.target.value);
+            }}
+          >
             <option value="">---</option>
             {accessories.map((elem: AccessoriesCupCake) => (
               <option value={elem.id} key={elem.id}>
@@ -82,13 +89,21 @@ function CupcakeList() {
         </label>
       </form>
       <ul className="cupcake-list" id="cupcake-list">
-        {allCupCake.map((elem) => (
-          <Cupcake data={elem} key={elem.id} />
-        ))}
+        {allCupCake
+          .filter((elem) => {
+            if (filterState === "") {
+              return true;
+            }
+            return elem.accessory_id === filterState;
+          })
+          .map((elem) => {
+            return (
+              <Link to={`/cupcakes/${elem.id}`} key={elem.id}>
+                <Cupcake data={elem} />
+              </Link>
+            );
+          })}
         {/* Step 5: filter cupcakes before repeating */}
-        <li className="cupcake-item">
-          <Cupcake data={sampleCupcakes[0]} />
-        </li>
         {/* end of block */}
       </ul>
     </>
