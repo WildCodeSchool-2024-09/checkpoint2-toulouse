@@ -10,8 +10,19 @@ sumArr( ["2", "5", "3"], ["2", "4", "9", "5", "5"] ) should return ["4", "9", "1
 */
 
 function sumArr(arrayA: string[], arrayB: string[]): string[] {
-  // Your code here !
-  return [];
+  const returnArray = Array<string>(0);
+  for (let index = 0; index < Math.max(arrayA.length, arrayB.length); index++) {
+    const numA = Number.parseInt(arrayA[index]);
+    const numB = Number.parseInt(arrayB[index]);
+    if (Number.isNaN(numA)) {
+      returnArray.push(numB.toString());
+    } else if (Number.isNaN(numB)) {
+      returnArray.push(numA.toString());
+    } else {
+      returnArray.push((numA + numB).toString());
+    }
+  }
+  return returnArray;
 }
 
 export default sumArr;
