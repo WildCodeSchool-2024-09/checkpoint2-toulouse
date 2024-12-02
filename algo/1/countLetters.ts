@@ -11,7 +11,7 @@ Exemples :
 
 function countLetters(givenString: string, letter: string): number {
   // Your code here !
-  return 0;
+  return givenString.split("").filter((element) => element === letter).length;
 }
 
 export default countLetters;
