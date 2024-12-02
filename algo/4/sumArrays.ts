@@ -12,16 +12,11 @@ sumArr( ["2", "5", "3"], ["2", "4", "9", "5", "5"] ) should return ["4", "9", "1
 function sumArr(arrayA: string[], arrayB: string[]): string[] {
   const newArr: number[] = [];
   while (arrayA.length > 0 && arrayB.length > 0) {
-    const a = arrayA.shift() || "0";
-    const b = arrayB.shift() || "0";
-    newArr.push(Number(a) + Number(b));
+    newArr.push(Number(arrayA.shift() || "0") + Number(arrayB.shift() || "0"));
   }
-  if (arrayA.length === 0) {
-    newArr.push(...arrayB.map(Number));
-  }
-  if (arrayB.length === 0) {
-    newArr.push(...arrayA.map(Number));
-  }
+  arrayA.length === 0
+    ? newArr.push(...arrayB.map(Number))
+    : newArr.push(...arrayA.map(Number));
   return newArr.map(String);
 }
 
