@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import Cupcake from "../components/Cupcake";
 
@@ -34,6 +34,11 @@ const sampleCupcakes = [
 ];
 
 type CupcakeArray = typeof sampleCupcakes;
+interface AccessoriesCupCake {
+  id: number;
+  name: string;
+  slug: string;
+}
 
 /* you can use sampleCupcakes if you're stucked on step 1 */
 /* if you're fine with step 1, just ignore this ;) */
@@ -43,6 +48,7 @@ function CupcakeList() {
   // Step 1: get all cupcakes
   console.info(useLoaderData() as CupcakeArray);
   const allCupCake = useLoaderData() as CupcakeArray;
+  const [accessories, setAccessories] = useState([]);
 
   // Step 3: get all accessories
 
@@ -50,6 +56,7 @@ function CupcakeList() {
     const getAllAccesories = async () => {
       const response = await fetch("http://localhost:3310/api/accessories");
       const data = await response.json();
+      setAccessories(data);
       console.info(data);
     };
     getAllAccesories();
@@ -66,7 +73,11 @@ function CupcakeList() {
           Filter by{" "}
           <select id="cupcake-select">
             <option value="">---</option>
-            {/* Step 4: add an option for each accessory */}
+            {accessories.map((elem: AccessoriesCupCake) => (
+              <option value={elem.id} key={elem.id}>
+                {elem.name}
+              </option>
+            ))}
           </select>
         </label>
       </form>
