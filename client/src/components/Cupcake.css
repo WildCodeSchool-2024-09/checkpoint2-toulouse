@@ -7,6 +7,15 @@
   width: var(--cupcake-size);
   height: var(--cupcake-size);
 }
+.cupcake-container-alone {
+  --cupcake-size: 200px;
+  --cupcake-basis: calc(var(--cupcake-size) / 2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: var(--cupcake-size);
+}
 
 .cupcake {
   display: flex;

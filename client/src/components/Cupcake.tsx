@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { CupcakeProps } from "../services/CupcakesApi";
 import "./Cupcake.css";
 
@@ -39,7 +40,9 @@ function Cupcake(data: CupcakeProps) {
         </div>
       </div>
 
-      <div className="cupcake-name">{data.name}</div>
+      <div className="cupcake-name">
+        <Link to={`/cupcake/${data.id}`}>{data.name}</Link>
+      </div>
     </div>
   );
 }
