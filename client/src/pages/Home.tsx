@@ -29,7 +29,7 @@ function Home() {
       </div>
       <div className="home-content">
         <p>
-          Welcome to color1={sampleData.color1} the Cupcake Union 🧁 <br />
+          Welcome to the Cupcake Union 🧁 <br />
           On this application, you will:
         </p>
         <p>
