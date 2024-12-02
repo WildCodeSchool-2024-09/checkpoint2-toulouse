@@ -1,6 +1,6 @@
 import "./Cupcake.css";
 
-interface CupcakeProps {
+export interface CupcakeProps {
   data: {
     accessory: string;
     color1: string;
